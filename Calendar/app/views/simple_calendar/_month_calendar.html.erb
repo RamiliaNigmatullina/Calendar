@@ -1,16 +1,16 @@
 <div class="simple-calendar">
   <table>
     <tr>
-      <td><%= link_to "Previous", calendar.url_for_previous_view %></td>
-      <td><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></td>
-      <td><%= link_to "Next", calendar.url_for_next_view %></td>
+      <td style="text-align: left"><%= link_to "Previous", calendar.url_for_previous_view %></td>
+      <td style="text-align: center;"><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></td>
+      <td style="text-align: right;"><%= link_to "Next", calendar.url_for_next_view %></td>
     </tr>
   </table>
   <table class="table table-striped">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
+          <th style="text-align: center;"><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
