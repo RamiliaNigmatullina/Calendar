@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :meetings
+  resources :home
   get 'welcome/index'
   resources :simple_calendar
 
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,9 +1,9 @@
 <div class="simple-calendar">
   <table>
     <tr>
-      <td style="text-align: left"><%= link_to "Previous", calendar.url_for_previous_view %></td>
-      <td style="text-align: center;"><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></td>
-      <td style="text-align: right;"><%= link_to "Next", calendar.url_for_next_view %></td>
+      <td style="text-align: left; border-color: white"><%= link_to "Previous", calendar.url_for_previous_view %></td>
+      <td style="text-align: center; border-color: white"><h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3></td>
+      <td style="text-align: right; border-color: white"><%= link_to "Next", calendar.url_for_next_view %></td>
     </tr>
   </table>
   <table class="table table-striped">
