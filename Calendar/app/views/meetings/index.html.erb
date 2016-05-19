@@ -1,33 +1,15 @@
-<div class="row">
-  <div class="small-6 small-offset-3 columns">
-    <p id="notice"><%= notice %></p>
+<%= yield %>
+<br><br>
+<div class="row medium-8 large-7 columns">
+  <p id="notice"><%= notice %></p>
 
-    <h1>Listing Meetings</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Start time</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @meetings.each do |meeting| %>
-        <tr>
-          <td><%= meeting.name %></td>
-          <td><%= meeting.start_time %></td>
-          <td><%= link_to 'Show', meeting %></td>
-          <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-          <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+  <%= month_calendar events: @meetings do |date, meetings| %>
+    <%= date %>
+      <ul>
+        <% meetings.each do |meeting| %>
+          <li><%= link_to meeting.name, edit_meeting_path(meeting) %></li>
         <% end %>
-      </tbody>
-    </table>
-
+      </ul>
+    <% end %>
     <br>
-
-    <%= link_to 'New Meeting', new_meeting_path %>
-  </div>
 </div>
