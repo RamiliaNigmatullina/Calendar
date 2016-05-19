@@ -2,35 +2,26 @@ class MeetingsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
-  # GET /meetings
-  # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @user = current_user
+    @meetings = @user.meetings
   end
 
-  # GET /meetings/1
-  # GET /meetings/1.json
-  def show
-  end
-
-  # GET /meetings/new
   def new
     @meeting = Meeting.new
   end
 
-  # GET /meetings/1/edit
   def edit
   end
 
-  # POST /meetings
-  # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+    @user = current_user
+    @meeting = @user.meetings.create(meeting_params)
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
-        format.json { render :show, status: :created, location: @meeting }
+        format.html { redirect_to meetings_path, notice: 'Meeting was successfully created.' }
+        format.json { render :index, status: :created, location: @meeting }
       else
         format.html { render :new }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
@@ -38,8 +29,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
@@ -52,8 +41,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # DELETE /meetings/1
-  # DELETE /meetings/1.json
   def destroy
     @meeting.destroy
     respond_to do |format|

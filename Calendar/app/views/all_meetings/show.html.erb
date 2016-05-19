@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="small-6 small-offset-3 columns">
+    <br><br>
+    <h2><%= @meeting.name %></h2>
+
+    <p>
+      <strong>Start time:</strong>
+      <%= @meeting.start_time %>
+    </p>
+
+    <% if @meeting.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_meeting_path(@meeting), class: "button" %>
+      <%= link_to 'Back', meetings_path , class: "hollow button"%>
+    <% end %>
+  </div>
+</div>
