@@ -47,18 +47,35 @@
 
   .day {
     height: 80px;
+    color: black
   }
 
-  .wday-0 {}
+  .wday-0 {
+    background: #F6F6F6
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
   .wday-4 {}
   .wday-5 {}
-  .wday-6 {}
+  .wday-6 {
+    background: #F6F6F6
+  }
 
   .today {
-    background: #FFFFC0
+    //background: #FFFFC0
+  }
+
+  .day.today {
+    color: red
+  }
+
+  .day.next-month {
+    color: #7D7D7D
+  }
+
+  .day.prev-month {
+    color: #7D7D7D
   }
 
   .past {}
@@ -67,10 +84,10 @@
   .start-date {}
 
   .prev-month {
-    background: #DDD;
+    //background: #F0F0F0;
   }
   .next-month {
-    background: #DDD;
+    //background: #F0F0F0;
   }
   .current-month {}
 
