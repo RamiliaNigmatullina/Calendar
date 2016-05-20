@@ -5,9 +5,9 @@
   <%= month_calendar events: @meetings do |date, meetings| %>
     <%= date %>
       
-    <ul>
+    <ul style="color: black">
       <% meetings.each do |meeting| %>
-        <li><%= link_to meeting.name, meeting_path(meeting) %></li>
+        <li><%= link_to truncate(meeting.name, :length => 9, :separator => ' '), meeting_path(meeting) %></li>
       <% end %>
     </ul>
   <% end %>

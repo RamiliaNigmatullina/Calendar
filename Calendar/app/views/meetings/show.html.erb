@@ -1,23 +1,29 @@
-<p id="notice"><%= notice %></p>
+<p class="center" id="notice"><%= notice %></p>
 
 <div class="row">
   <div class="small-6 small-offset-3 columns">
     <h2 class="center"><%= @meeting.name %></h2>
     <br>
-    <table cellspacing="2" border="1" cellpadding="5" width="600">
+    <table style="border: 2px solid white">
       <tr>
-        <td>Start time:</td>
+        <td style="width: 100px">Start time:</td>
         <td><%= @meeting.start_time %></td>
       </tr>
       <% if @meeting.end_time != nil %>
       <tr>
-        <td>End time:</td>
+        <td style="width: 100px">End time:</td>
         <td><%= @meeting.end_time %></td>
       </tr>
       <% end %>
-      <% if @meeting.description != nil %>
+      <% if @meeting.place != nil %>
       <tr>
-        <td>Description:</td>
+        <td valign="top" style="width: 100px">Place:</td>
+        <td><%= @meeting.place %></td>
+      </tr>
+      <% end %>
+      <% if @meeting.description != '' %>
+      <tr>
+        <td valign="top" style="width: 100px">Description:</td>
         <td><%= @meeting.description %></td>
       </tr>
       <% end %>

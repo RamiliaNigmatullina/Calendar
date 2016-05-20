@@ -20,7 +20,7 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meetings_path, notice: 'Meeting was successfully created.' }
+        format.html { redirect_to meeting_path(@meeting), notice: 'Meeting was successfully created.' }
         format.json { render :index, status: :created, location: @meeting }
       else
         format.html { render :new }
@@ -57,6 +57,6 @@ class MeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time, :description)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :place, :description)
     end
 end
