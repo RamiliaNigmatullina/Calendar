@@ -9,6 +9,14 @@ class AllMeetingsController < ApplicationController
   def show
   end
 
+  def day_calendar
+    @meetings = Meeting.all
+  end
+
+  def list
+    @meetings = Meeting.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting

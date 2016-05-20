@@ -1,30 +1,29 @@
-<p id="notice"><%= notice %></p>
-
+<%= yield %>
 <div class="row">
-  <div class="small-6 small-offset-3 columns">
-    <h2 class="center"><%= @meeting.name %></h2>
-    <br>
+  <div class="small-8 small-offset-2 columns">
+    <% @meetings.each do |meeting| %>
+    <h3 class="center"><%= link_to meeting.name, meeting_path(meeting) %></h3>
     <table style="border: 2px solid white">
       <tr>
         <td style="width: 100px">Start time:</td>
-        <td><%= @meeting.start_time %></td>
+        <td><%= meeting.start_time %></td>
       </tr>
-      <% if @meeting.end_time != nil %>
+      <% if meeting.end_time != nil %>
       <tr>
         <td style="width: 100px">End time:</td>
-        <td><%= @meeting.end_time %></td>
+        <td><%= meeting.end_time %></td>
       </tr>
       <% end %>
-      <% if @meeting.place != nil %>
+      <% if meeting.place != nil %>
       <tr>
         <td valign="top" style="width: 100px">Place:</td>
-        <td><%= @meeting.place %></td>
+        <td><%= truncate(meeting.place, :length => 100, :separator => ' ') %></td>
       </tr>
       <% end %>
-      <% if @meeting.description != '' %>
+      <% if meeting.description != '' %>
       <tr>
         <td valign="top" style="width: 100px">Description:</td>
-        <td><%= @meeting.description %></td>
+        <td><%= truncate(meeting.description, :length => 100, :separator => ' ') %></td>
       </tr>
       <% end %>
       <tr>
@@ -32,9 +31,7 @@
         <td><%= meeting.user.email %></td>
       </tr>
     </table>
-    <br>
-    <div class="center">
-      <%= link_to 'Back', :back , class: "hollow button"%>
-    </div>
+    <hr>
+    <% end %>
   </div>
 </div>

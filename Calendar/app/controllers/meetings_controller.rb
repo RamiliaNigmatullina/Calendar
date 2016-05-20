@@ -7,6 +7,19 @@ class MeetingsController < ApplicationController
     @meetings = @user.meetings
   end
 
+  def show
+  end
+
+  def day_calendar
+    @user = current_user
+    @meetings = @user.meetings
+  end
+
+  def list
+    @user = current_user
+    @meetings = @user.meetings
+  end
+
   def new
     @meeting = Meeting.new
   end

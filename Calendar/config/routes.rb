@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :meetings
-  resources :all_meetings
+  #resources :meetings, :all_meetings
+
+  resources :meetings, :all_meetings do
+    collection do
+      get 'day_calendar'
+      get 'list'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

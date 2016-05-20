@@ -2,20 +2,34 @@
   <ul class="menu">
     <% if user_signed_in? %>
     <ul class="dropdown menu" data-dropdown-menu>
-      <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "All events", all_meetings_path %></h6></li>
-      <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "My events", meetings_path %></h6></li>
-      <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "Create event", new_meeting_path %></h6></li>
-      <li style="padding-top: 15px; padding-left: 15px">
+      <li class="nav-bar-1"><h6><%= link_to "Create event", new_meeting_path %></h6></li>
+      <li class="nav-bar-1">
+        <h6><a href="#">All events</a></h6>
+        <ul class="menu vertical">
+          <li class="nav-bar-2"><h6><%= link_to "Month calendar", all_meetings_path %></h6></li>
+          <li class="nav-bar-3"><h6><%= link_to "Day calendar", day_calendar_all_meetings_path %></h6></li>
+          <li class="nav-bar-3"><h6><%= link_to "List", list_all_meetings_path %></h6></li>
+        </ul>
+      </li>
+      <li class="nav-bar-1">
+        <h6><a href="#">My events</a></h6>
+        <ul class="menu vertical">
+          <li class="nav-bar-2"><h6><%= link_to "Month calendar", meetings_path %></h6></li>
+          <li class="nav-bar-3"><h6><%= link_to "Day calendar", day_calendar_meetings_path %></h6></li>
+          <li class="nav-bar-3"><h6><%= link_to "List", list_meetings_path %></h6></li>
+        </ul>
+      </li>
+      <li class="nav-bar-1">
         <h6><a href="#"><%= current_user.email %></a></h6>
         <ul class="menu vertical">
-          <li style="padding-top: 10px; padding-left: 15px"><h6><%= link_to "Edit profile", edit_user_registration_path %></h6></li>
-          <li style="padding-top: 5px; padding-left: 15px"><h6><%= link_to "Sign out", destroy_user_session_path, method: :delete %></h6></li>
+          <li class="nav-bar-2"><h6><%= link_to "Edit profile", edit_user_registration_path %></h6></li>
+          <li class="nav-bar-3"><h6><%= link_to "Sign out", destroy_user_session_path, method: :delete %></h6></li>
         </ul>
       </li>
     </ul>
     <% else %>
-    <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "Sign in", new_user_session_path %></h6></li>
-    <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "Sign up", new_user_registration_path %></h6></li>
+    <li class="nav-bar-1"><h6><%= link_to "Sign in", new_user_session_path %></h6></li>
+    <li class="nav-bar-1"><h6><%= link_to "Sign up", new_user_registration_path %></h6></li>
     <% end %>
   </ul>
 </div>
