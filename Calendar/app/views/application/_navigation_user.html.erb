@@ -2,7 +2,7 @@
   <ul class="menu">
     <% if user_signed_in? %>
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><%= link_to "Create meeting", new_meeting_path %></li>
+      <li><%= link_to "Create event", new_meeting_path %></li>
       <li>
         <a href="#"><%= current_user.email %></a>
         <ul class="menu vertical">

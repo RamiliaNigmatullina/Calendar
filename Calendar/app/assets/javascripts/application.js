@@ -20,3 +20,21 @@
 $(document).on('ready page:load', function () {
   $(document).foundation();
 });
+
+$(document).on('ready page:load', function () {
+  $(function() {
+    $( "#meeting_start_time" ).datepicker({
+      dateFormat: "dd-mm-yy",
+      firstDay: 1
+    });
+  });
+});
+
+$(document).on('ready page:load', function () {
+  $(function() {
+    $( "#meeting_end_time" ).datepicker({
+      dateFormat: "dd-mm-yy",
+      firstDay: 1
+    });
+  });
+});

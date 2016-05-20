@@ -21,8 +21,17 @@
       <%= f.label :start_time %><br>
       <%= f.text_field :start_time %>
     </div>
+    <div class="field">
+      <%= f.label :end_time %><br>
+      <%= f.text_field :end_time %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, size: "1x7" %>
+    </div>
     <div class="actions" style="text-align: center">
-    <%= f.submit "Create meeting", class: "button" %>
+    <%= f.submit "Save event", class: "button" %>
+    <%= link_to 'Back', meetings_path, class: "hollow button" %>
     </div>
     <% end %>
   </div>
