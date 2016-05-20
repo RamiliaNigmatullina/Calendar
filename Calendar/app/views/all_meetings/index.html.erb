@@ -1,5 +1,5 @@
 <%= yield %>
-<br><br>
+<br>
 <div class="row medium-8 large-7 columns">
   <p id="notice"><%= notice %></p>
 
@@ -8,7 +8,11 @@
       
     <ul>
       <% meetings.each do |meeting| %>
-        <li><%= link_to meeting.name, all_meeting_path(meeting) %></li>
+        <% if meeting.user_id == current_user.id %>
+          <li><%= link_to meeting.name, {controller: "meetings", action: "show", id: meeting.id} %></li>
+        <% else %>
+          <li><%= link_to meeting.name, all_meeting_path(meeting) %></li>
+        <% end %>
       <% end %>
     </ul>
   <% end %>
