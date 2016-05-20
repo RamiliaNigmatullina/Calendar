@@ -2,6 +2,8 @@
   <ul class="menu">
     <% if user_signed_in? %>
     <ul class="dropdown menu" data-dropdown-menu>
+      <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "All events", all_meetings_path %></h6></li>
+      <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "My events", meetings_path %></h6></li>
       <li style="padding-top: 15px; padding-left: 15px"><h6><%= link_to "Create event", new_meeting_path %></h6></li>
       <li style="padding-top: 15px; padding-left: 15px">
         <h6><a href="#"><%= current_user.email %></a></h6>
