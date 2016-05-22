@@ -1,33 +1,30 @@
 <div class="simple-calendar">
-  <%= link_to "Previous", calendar.url_for_previous_view %>
-  <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
-  <%= link_to "Next", calendar.url_for_next_view %>
+  <table style="border: 2px solid white">
+    <tr>
+      <td style="text-align: left; border-color: white"><h3><%= link_to "<", calendar.url_for_previous_view %></h3></td>
+      <td style="text-align: center; border-color: white">
+        <h3>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
-        <% end %>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
-        <tr>
-          <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
-                <% capture_haml do %>
+          <% date_range.each_slice(7) do |week| %>
+            <% week.each do |day| %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                  <% capture_haml do %>
+                    <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
+                    <% block.call day, sorted_events.fetch(day, []) %>
+                  <% end %>
+                <% else %>
+                  <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
                   <% block.call day, sorted_events.fetch(day, []) %>
                 <% end %>
-              <% else %>
-                <% block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
             <% end %>
           <% end %>
-        </tr>
-      <% end %>
-    </tbody>
+        <!-- <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %> -->
+        </h3>
+        <h4 class="font-weight-200"><% date_range.slice(0, 7).each do |day| %>
+          <%= I18n.t("date.day_names")[day.wday] %>
+        <% end %></h4>
+      </td>
+      <td style="text-align: right; border-color: white"><h3><%= link_to ">", calendar.url_for_next_view %></h3></td>
+    </tr>
   </table>
 </div>

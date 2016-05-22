@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   resources :meetings, :all_meetings do
     collection do
-      get 'day_calendar'
+      get 'day_calendar' 
       get 'list'
     end
   end
+
+  #get 'day_calendar/:start_time' => 'all_meetings#day_calendar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

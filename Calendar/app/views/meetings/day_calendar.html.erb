@@ -3,7 +3,7 @@
   <p id="notice"><%= notice %></p>
 
   <%= calendar number_of_days: 1, events: @meetings do |date, meetings| %>
-    <%= date %>
+    <%= date.strftime("%d") %>
       
     <ul style="color: black">
       <% meetings.each do |meeting| %>

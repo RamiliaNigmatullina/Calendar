@@ -3,15 +3,17 @@
   <p id="notice"><%= notice %></p>
 
   <%= calendar number_of_days: 1, events: @meetings do |date, meetings| %>
-    <%= date %>
+    <%= date.strftime("%d") %>
       
     <ul style="color: black">
+     <% if meetings != nil %>
       <% meetings.each do |meeting| %>
         <% if meeting.user_id == current_user.id %>
           <li><%= link_to meeting.name, {controller: "meetings", action: "show", id: meeting.id} %></li>
         <% else %>
           <li><%= link_to meeting.name, all_meeting_path(meeting) %></li>
         <% end %>
+      <% end %>
       <% end %>
     </ul>
   <% end %>

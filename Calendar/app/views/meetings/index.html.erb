@@ -3,7 +3,9 @@
   <p id="notice"><%= notice %></p>
 
   <%= month_calendar events: @meetings do |date, meetings| %>
-    <%= date %>
+    <div style="text-align: right">
+      <%= date.strftime("%d") %>
+    </div>
       
     <ul style="color: black">
       <% meetings.each do |meeting| %>
