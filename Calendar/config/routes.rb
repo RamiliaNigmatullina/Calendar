@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
-  #resources :meetings, :all_meetings
+  # resources :meetings, :all_meetings
 
   resources :meetings, :all_meetings do
     collection do
-      get 'day_calendar' 
+      get 'day_calendar'
       get 'list'
     end
   end
 
   get 'users/:id', to: 'users#show', as: 'user_show'
+
+  # get 'day_calendar', to: 'all_meetings#day_calendar', as: 'all_meetings_day_calendar'
+  # get 'day_calendar', to: 'meetings#day_calendar', as: 'meetings_day_calendar'
+  # get 'list', to: 'all_meetings#list', as: 'all_meetings_list'
+  # get 'list', to: 'meetings#list', as: 'meetings_list'
 
   #get 'day_calendar/:start_time' => 'all_meetings#day_calendar'
 
