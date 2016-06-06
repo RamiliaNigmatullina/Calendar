@@ -14,7 +14,7 @@ class AllMeetingsController < ApplicationController
   end
 
   def list
-    @meetings = Meeting.all
+    @meetings = Meeting.all.page(params[:page]).per(5)
   end
 
   private

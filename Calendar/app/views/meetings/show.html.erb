@@ -7,15 +7,15 @@
     <table style="border: 2px solid white">
       <tr>
         <td style="width: 100px">Start time:</td>
-        <td><%= @meeting.start_time %></td>
+        <td><%= @meeting.start_time.strftime("%d.%m.%Y") %></td>
       </tr>
       <% if @meeting.end_time != nil %>
       <tr>
         <td style="width: 100px">End time:</td>
-        <td><%= @meeting.end_time %></td>
+        <td><%= @meeting.end_time.strftime("%d.%m.%Y") %></td>
       </tr>
       <% end %>
-      <% if @meeting.place != nil %>
+      <% if @meeting.place != '' && @meeting.place != nil %>
       <tr>
         <td valign="top" style="width: 100px">Place:</td>
         <td><%= @meeting.place %></td>

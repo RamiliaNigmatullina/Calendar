@@ -10,7 +10,7 @@
     <ul style="color: black">
       <% meetings.each do |meeting| %>
         <% if meeting.user_id == current_user.id %>
-          <li><%= link_to truncate(meeting.name, :length => 9, :separator => ' '), {controller: "meetings", action: "show", id: meeting.id} %></li>
+          <li><%= link_to truncate(meeting.name, length: 9, :separator => ' '), {controller: "meetings", action: "show", id: meeting.id} %></li>
         <% else %>
           <li><%= link_to truncate(meeting.name, :length => 9, :separator => ' '), all_meeting_path(meeting) %></li>
         <% end %>

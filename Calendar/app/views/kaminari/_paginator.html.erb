@@ -1,0 +1,33 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     t3e paginator that renders the pagination tags inside
+    -%>
+    <%= paginator.render do -%>
+    <div class="row">
+      <div class="small-2 small-centered columns">
+        <nav class="pagination">
+          <table class="center" style="border: 2px solid white">
+            <tr>
+              <!-- <td><%= first_page_tag unless current_page.first? %></td>
+              <td><%= prev_page_tag unless current_page.first? %></td> -->
+
+              <% each_page do |page| -%>
+              <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+              <td><%= page_tag page %></td>
+              <% elsif !page.was_truncated? -%>
+              <td><%= gap_tag %></td>
+              <% end -%>
+              <% end -%>
+
+              <!-- <td><%= next_page_tag unless current_page.last? %></td>
+              <td><%= last_page_tag unless current_page.last? %></td> -->
+            </tr>
+          </table>
+        </nav>
+      </div>
+    </div>
+    <% end -%>

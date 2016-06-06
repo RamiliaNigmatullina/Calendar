@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/:id', to: 'users#show', as: 'user_show'
+
   #get 'day_calendar/:start_time' => 'all_meetings#day_calendar'
 
   # The priority is based upon order of creation: first created -> highest priority.

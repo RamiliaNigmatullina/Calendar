@@ -17,7 +17,7 @@ class MeetingsController < ApplicationController
 
   def list
     @user = current_user
-    @meetings = @user.meetings
+    @meetings = @user.meetings.page(params[:page]).per(5)
   end
 
   def new
@@ -70,6 +70,6 @@ class MeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time, :place, :description)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :place, :description, :avatar)
     end
 end
