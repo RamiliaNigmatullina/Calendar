@@ -87,4 +87,4 @@ production:
   <<: *default
   database: calendar_production
   username: postgres
-  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
+  password: <%= ENV['CALENDAR_DATABASE_PASSWORD'] %>
