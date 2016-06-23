@@ -16,7 +16,6 @@ class MyClass
       else 
         if count != 0
           newNumber = newNumber + count.to_s + number.to_s
-          #newNumber = "#{newNumber}#{count}#{number}"
         end
         number = currentNumber
         count = 1
@@ -24,13 +23,10 @@ class MyClass
     end
 
     newNumber = newNumber + count.to_s + number.to_s
-    #newNumber = "#{newNumber}#{count}#{number}"
-
-    #getNewNumber(newNumber)
+     
+    getNewNumber(newNumber)
   end
 end
 
 myClass = MyClass.new
-
-number = 1
-10.times { number = myClass.getNewNumber(number) }
+myClass.getNewNumber(1)
