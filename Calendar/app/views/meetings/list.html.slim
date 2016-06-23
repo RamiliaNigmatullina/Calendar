@@ -1,6 +1,9 @@
 == yield
 .row
   .small-8.small-offset-2.columns
+    div id="notice"
+      = notice
+
     - for meeting in @meetings
       h3
         .text-center
@@ -28,6 +31,24 @@
           tr
             td.width-100 valign="top"
               | Autor:
-            td = meeting.user.email
+            td
+              dfn
+                = link_to meeting.user.email, user_show_path(meeting.user)
       hr
     = paginate @meetings
+    - if @meetings.empty?
+      h2.text-center
+        | My events
+      h4.text-center.font-weight-200
+        br
+        | You have not created events yet. 
+        dfn
+          = link_to "Create", new_meeting_path
+        |  your first event
+  .small-2.columns
+    h4.text-center.font-weight-200
+      | My events
+    hr
+    h5.font-weight-200 = link_to "Month calendar", meetings_path
+    h5.font-weight-200 = link_to "Day calendar", day_calendar_meetings_path
+    h5.font-weight-300 = link_to "List", list_meetings_path

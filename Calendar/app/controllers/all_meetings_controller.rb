@@ -14,16 +14,14 @@ class AllMeetingsController < ApplicationController
   end
 
   def list
-    @meetings = Meeting.all.page(params[:page]).per(5)
+    @meetings = Meeting.all.order(start_time: :desc).page(params[:page]).per(5)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_meeting
       @meeting = Meeting.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
       params.require(:meeting).permit(:name, :start_time, :end_time, :place, :description)
     end
